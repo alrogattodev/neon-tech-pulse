@@ -1,0 +1,187 @@
+
+:root {
+  --bs-primary: #0066ff;
+  --bs-secondary: #6c757d;
+  --bs-success: #6bff91;
+  --bs-purple: #8a3ffc;
+  --bs-warning: #ffc107;
+  --bs-danger: #dc3545;
+  --bs-dark: #151515;
+  --bs-light: #f8f9fa;
+  --tech-blue: #0066ff;
+  --neon-green: #6bff91;
+  --matte-black: #151515;
+  --font-sans-serif: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Base Styles */
+body {
+  font-family: var(--font-sans-serif);
+  color: #333;
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background-color: var(--bs-dark);
+  color: #f5f5f5;
+}
+
+body.dark-mode .bg-white,
+body.dark-mode .navbar,
+body.dark-mode .card,
+body.dark-mode .card-header,
+body.dark-mode .card-footer {
+  background-color: #222 !important;
+  border-color: #333 !important;
+}
+
+body.dark-mode .text-dark,
+body.dark-mode .nav-link,
+body.dark-mode .card-title,
+body.dark-mode h1, 
+body.dark-mode h2, 
+body.dark-mode h3, 
+body.dark-mode h4, 
+body.dark-mode h5, 
+body.dark-mode h6 {
+  color: #f5f5f5 !important;
+}
+
+body.dark-mode .text-muted,
+body.dark-mode .nav-tabs .nav-link {
+  color: #aaa !important;
+}
+
+body.dark-mode .border-bottom,
+body.dark-mode .border-top {
+  border-color: #333 !important;
+}
+
+body.dark-mode .bg-light {
+  background-color: #333 !important;
+}
+
+body.dark-mode .bg-dark-subtle {
+  background-color: #333 !important;
+}
+
+/* Utilities */
+.text-gradient {
+  background: linear-gradient(90deg, var(--tech-blue), var(--neon-green));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.bg-gradient {
+  background: linear-gradient(120deg, var(--tech-blue), #005ce6);
+}
+
+.bg-purple {
+  background-color: var(--bs-purple) !important;
+}
+
+/* Card and Image styles */
+.card {
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.card:hover .card-img-top {
+  transform: scale(1.05);
+}
+
+/* Carousel customization */
+.carousel-item {
+  transition: transform 0.8s ease, opacity .5s ease-out;
+}
+
+.carousel-indicators [data-bs-target] {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  margin: 0 4px;
+}
+
+.carousel-indicators .active {
+  background-color: white;
+}
+
+/* Nav tabs style */
+.nav-tabs .nav-link {
+  color: #777;
+  border: none;
+  padding: 0.5rem 1rem;
+  position: relative;
+}
+
+.nav-tabs .nav-link.active {
+  color: var(--tech-blue);
+  background: none;
+  font-weight: 500;
+}
+
+.nav-tabs .nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--tech-blue);
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Other utility classes */
+.object-fit-cover {
+  object-fit: cover;
+}
+
+/* Button styles */
+.btn-primary {
+  background-color: var(--tech-blue);
+  border-color: var(--tech-blue);
+}
+
+.btn-primary:hover {
+  background-color: #0055d4;
+  border-color: #0055d4;
+}
+
+.btn-success {
+  background-color: var(--neon-green);
+  border-color: var(--neon-green);
+  color: var(--matte-black);
+}
+
+.btn-success:hover {
+  background-color: #5ae57a;
+  border-color: #5ae57a;
+  color: var(--matte-black);
+}
+
+/* Top spacing for sections */
+section {
+  margin-top: 2rem;
+}

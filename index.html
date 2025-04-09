@@ -24,12 +24,683 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
   </head>
 
   <body>
-    <div id="root"></div>
-    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
-    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
-    <script type="module" src="/src/main.tsx"></script>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-md sticky-top navbar-light bg-white border-bottom">
+      <div class="container py-2">
+        <!-- Logo -->
+        <a class="navbar-brand" href="index.html">
+          <span class="fs-4 fw-bold text-gradient">TechPulse</span>
+        </a>
+        
+        <!-- Mobile Toggle Button -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <!-- Menu Links -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="category/technology">Tecnologia</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="category/crypto">Criptomoedas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="category/affiliate">Afiliados</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="category/tutorials">Tutoriais</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="category/reviews">Análises</a>
+            </li>
+          </ul>
+          
+          <div class="d-flex align-items-center gap-2">
+            <!-- Search Button -->
+            <button class="btn btn-sm btn-outline-secondary rounded-circle d-none d-md-inline-flex" type="button" data-bs-toggle="modal" data-bs-target="#searchModal">
+              <i class="bi bi-search"></i>
+            </button>
+            
+            <!-- Theme Toggle -->
+            <button id="themeToggle" class="btn btn-sm btn-outline-secondary rounded-circle">
+              <i class="bi bi-moon-fill"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Search Modal -->
+    <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="searchModalLabel">Buscar</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="input-group">
+                <input type="search" class="form-control" placeholder="O que você está procurando?" aria-label="Search">
+                <button class="btn btn-primary" type="submit"><i class="bi bi-search"></i></button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Featured Carousel -->
+      <section class="container mt-4">
+        <div id="featuredCarousel" class="carousel slide rounded-4 overflow-hidden" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner" style="height: 500px;">
+            <div class="carousel-item active">
+              <div class="position-relative h-100">
+                <div class="position-absolute top-0 start-0 w-100 h-100 bg-gradient-to-t from-black to-transparent opacity-50"></div>
+                <img src="https://images.unsplash.com/photo-1639762681057-408e52192e55?q=80&w=2070&auto=format&fit=crop" class="d-block w-100 h-100 object-fit-cover" alt="Blockchain Finance">
+                <div class="carousel-caption text-start">
+                  <span class="badge bg-success text-dark mb-2">Criptomoedas</span>
+                  <h2 class="fs-1 fw-bold">Como Blockchain Está Mudando a Indústria Financeira em 2023</h2>
+                  <p class="d-none d-md-block">Descubra as principais tendências de blockchain e como essa tecnologia está revolucionando o setor financeiro global.</p>
+                  <a href="post/blockchain-finance-2023" class="btn btn-primary mt-2">Ler mais</a>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="position-relative h-100">
+                <div class="position-absolute top-0 start-0 w-100 h-100 bg-gradient-to-t from-black to-transparent opacity-50"></div>
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop" class="d-block w-100 h-100 object-fit-cover" alt="Affiliate Marketing">
+                <div class="carousel-caption text-start">
+                  <span class="badge bg-purple text-white mb-2">Afiliados</span>
+                  <h2 class="fs-1 fw-bold">10 Estratégias Avançadas para Marketing de Afiliados em 2023</h2>
+                  <p class="d-none d-md-block">Aprenda técnicas modernas para aumentar sua conversão e maximizar seus ganhos com marketing de afiliados.</p>
+                  <a href="post/affiliate-marketing-strategies" class="btn btn-primary mt-2">Ler mais</a>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="position-relative h-100">
+                <div class="position-absolute top-0 start-0 w-100 h-100 bg-gradient-to-t from-black to-transparent opacity-50"></div>
+                <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=2080&auto=format&fit=crop" class="d-block w-100 h-100 object-fit-cover" alt="5G Smartphones">
+                <div class="carousel-caption text-start">
+                  <span class="badge bg-primary text-white mb-2">Tecnologia</span>
+                  <h2 class="fs-1 fw-bold">Análise: Os Melhores Smartphones 5G de 2023</h2>
+                  <p class="d-none d-md-block">Confira nossa análise completa dos smartphones mais avançados com tecnologia 5G disponíveis no mercado.</p>
+                  <a href="post/best-5g-smartphones-2023" class="btn btn-primary mt-2">Ler mais</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#featuredCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#featuredCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Main Content Area -->
+      <section class="container py-5">
+        <div class="row">
+          <!-- Main Content -->
+          <div class="col-lg-8">
+            <h2 class="fw-bold mb-4">Posts Recentes</h2>
+            
+            <!-- Recent Posts Grid -->
+            <div class="row row-cols-1 row-cols-md-2 g-4 mb-5">
+              <!-- Post 1 -->
+              <div class="col">
+                <div class="card h-100 border-0 shadow-sm">
+                  <div class="position-relative">
+                    <img src="https://images.unsplash.com/photo-1639762681057-408e52192e55?q=80&w=2070&auto=format&fit=crop" class="card-img-top" alt="Blockchain Finance">
+                    <span class="position-absolute top-3 start-3 badge bg-success text-dark">Criptomoedas</span>
+                  </div>
+                  <div class="card-body p-4">
+                    <a href="post/blockchain-finance-2023" class="text-decoration-none text-dark">
+                      <h3 class="card-title h5 fw-semibold mb-2">Como Blockchain Está Mudando a Indústria Financeira em 2023</h3>
+                    </a>
+                    <p class="card-text text-muted small">Descubra as principais tendências de blockchain e como essa tecnologia está revolucionando o setor financeiro global.</p>
+                    <div class="d-flex align-items-center text-muted small gap-3 mt-3">
+                      <span>15 Abr, 2023</span>
+                      <span><i class="bi bi-clock me-1"></i> 7 min</span>
+                      <span><i class="bi bi-chat me-1"></i> 12</span>
+                    </div>
+                  </div>
+                  <div class="card-footer bg-white border-0 p-4 pt-0">
+                    <a href="post/blockchain-finance-2023" class="text-primary small fw-medium d-flex align-items-center">
+                      Ler artigo completo <i class="bi bi-arrow-up-right ms-1"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Post 2 -->
+              <div class="col">
+                <div class="card h-100 border-0 shadow-sm">
+                  <div class="position-relative">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop" class="card-img-top" alt="Affiliate Marketing">
+                    <span class="position-absolute top-3 start-3 badge bg-purple text-white">Afiliados</span>
+                  </div>
+                  <div class="card-body p-4">
+                    <a href="post/affiliate-marketing-strategies" class="text-decoration-none text-dark">
+                      <h3 class="card-title h5 fw-semibold mb-2">10 Estratégias Avançadas para Marketing de Afiliados em 2023</h3>
+                    </a>
+                    <p class="card-text text-muted small">Aprenda técnicas modernas para aumentar sua conversão e maximizar seus ganhos com marketing de afiliados.</p>
+                    <div class="d-flex align-items-center text-muted small gap-3 mt-3">
+                      <span>12 Abr, 2023</span>
+                      <span><i class="bi bi-clock me-1"></i> 9 min</span>
+                      <span><i class="bi bi-chat me-1"></i> 8</span>
+                    </div>
+                  </div>
+                  <div class="card-footer bg-white border-0 p-4 pt-0">
+                    <a href="post/affiliate-marketing-strategies" class="text-primary small fw-medium d-flex align-items-center">
+                      Ler artigo completo <i class="bi bi-arrow-up-right ms-1"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Post 3 -->
+              <div class="col">
+                <div class="card h-100 border-0 shadow-sm">
+                  <div class="position-relative">
+                    <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=2080&auto=format&fit=crop" class="card-img-top" alt="5G Smartphones">
+                    <span class="position-absolute top-3 start-3 badge bg-primary text-white">Tecnologia</span>
+                  </div>
+                  <div class="card-body p-4">
+                    <a href="post/best-5g-smartphones-2023" class="text-decoration-none text-dark">
+                      <h3 class="card-title h5 fw-semibold mb-2">Análise: Os Melhores Smartphones 5G de 2023</h3>
+                    </a>
+                    <p class="card-text text-muted small">Confira nossa análise completa dos smartphones mais avançados com tecnologia 5G disponíveis no mercado.</p>
+                    <div class="d-flex align-items-center text-muted small gap-3 mt-3">
+                      <span>10 Abr, 2023</span>
+                      <span><i class="bi bi-clock me-1"></i> 11 min</span>
+                      <span><i class="bi bi-chat me-1"></i> 15</span>
+                    </div>
+                  </div>
+                  <div class="card-footer bg-white border-0 p-4 pt-0">
+                    <a href="post/best-5g-smartphones-2023" class="text-primary small fw-medium d-flex align-items-center">
+                      Ler artigo completo <i class="bi bi-arrow-up-right ms-1"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Post 4 -->
+              <div class="col">
+                <div class="card h-100 border-0 shadow-sm">
+                  <div class="position-relative">
+                    <img src="https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?q=80&w=2070&auto=format&fit=crop" class="card-img-top" alt="React Tutorial">
+                    <span class="position-absolute top-3 start-3 badge bg-warning text-dark">Tutoriais</span>
+                  </div>
+                  <div class="card-body p-4">
+                    <a href="post/high-performance-react-site" class="text-decoration-none text-dark">
+                      <h3 class="card-title h5 fw-semibold mb-2">Tutorial: Como Criar um Site de Alta Performance com React</h3>
+                    </a>
+                    <p class="card-text text-muted small">Aprenda a desenvolver sites rápidos e modernos utilizando React e as melhores práticas de otimização.</p>
+                    <div class="d-flex align-items-center text-muted small gap-3 mt-3">
+                      <span>8 Abr, 2023</span>
+                      <span><i class="bi bi-clock me-1"></i> 14 min</span>
+                      <span><i class="bi bi-chat me-1"></i> 7</span>
+                    </div>
+                  </div>
+                  <div class="card-footer bg-white border-0 p-4 pt-0">
+                    <a href="post/high-performance-react-site" class="text-primary small fw-medium d-flex align-items-center">
+                      Ler artigo completo <i class="bi bi-arrow-up-right ms-1"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Category Tabs -->
+            <div class="mb-5">
+              <ul class="nav nav-tabs border-bottom mb-4" id="postTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active fw-medium" id="all-tab" data-bs-toggle="tab" data-bs-target="#all-posts" type="button" role="tab" aria-controls="all-posts" aria-selected="true">Todos</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link fw-medium" id="tech-tab" data-bs-toggle="tab" data-bs-target="#tech-posts" type="button" role="tab" aria-controls="tech-posts" aria-selected="false">Tecnologia</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link fw-medium" id="crypto-tab" data-bs-toggle="tab" data-bs-target="#crypto-posts" type="button" role="tab" aria-controls="crypto-posts" aria-selected="false">Criptomoedas</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link fw-medium" id="affiliate-tab" data-bs-toggle="tab" data-bs-target="#affiliate-posts" type="button" role="tab" aria-controls="affiliate-posts" aria-selected="false">Afiliados</button>
+                </li>
+              </ul>
+              
+              <div class="tab-content" id="postTabsContent">
+                <!-- All Posts Tab -->
+                <div class="tab-pane fade show active" id="all-posts" role="tabpanel" aria-labelledby="all-tab">
+                  <div class="row row-cols-1 row-cols-md-2 g-4">
+                    <!-- Include all 6 posts here (repeating the 4 above plus 2 more) -->
+                    <!-- Post 5 -->
+                    <div class="col">
+                      <div class="card h-100 border-0 shadow-sm">
+                        <div class="position-relative">
+                          <img src="https://images.unsplash.com/photo-1645367547326-5ee0567dec60?q=80&w=1974&auto=format&fit=crop" class="card-img-top" alt="NFT Future">
+                          <span class="position-absolute top-3 start-3 badge bg-success text-dark">Criptomoedas</span>
+                        </div>
+                        <div class="card-body p-4">
+                          <a href="post/future-of-nfts" class="text-decoration-none text-dark">
+                            <h3 class="card-title h5 fw-semibold mb-2">O Futuro das NFTs: Arte Digital, Gaming e Além</h3>
+                          </a>
+                          <p class="card-text text-muted small">Uma análise profunda sobre o futuro dos tokens não fungíveis e seus impactos em diversos setores.</p>
+                          <div class="d-flex align-items-center text-muted small gap-3 mt-3">
+                            <span>5 Abr, 2023</span>
+                            <span><i class="bi bi-clock me-1"></i> 8 min</span>
+                            <span><i class="bi bi-chat me-1"></i> 9</span>
+                          </div>
+                        </div>
+                        <div class="card-footer bg-white border-0 p-4 pt-0">
+                          <a href="post/future-of-nfts" class="text-primary small fw-medium d-flex align-items-center">
+                            Ler artigo completo <i class="bi bi-arrow-up-right ms-1"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <!-- Post 6 -->
+                    <div class="col">
+                      <div class="card h-100 border-0 shadow-sm">
+                        <div class="position-relative">
+                          <img src="https://images.unsplash.com/photo-1562577309-4932fdd64cd1?q=80&w=2074&auto=format&fit=crop" class="card-img-top" alt="SEO Google Ranking">
+                          <span class="position-absolute top-3 start-3 badge bg-purple text-white">Afiliados</span>
+                        </div>
+                        <div class="card-body p-4">
+                          <a href="post/seo-google-ranking-2023" class="text-decoration-none text-dark">
+                            <h3 class="card-title h5 fw-semibold mb-2">SEO em 2023: Como Ranquear seu Site no Topo do Google</h3>
+                          </a>
+                          <p class="card-text text-muted small">Descubra as estratégias mais eficientes para otimizar seu site e conquistar as primeiras posições no Google.</p>
+                          <div class="d-flex align-items-center text-muted small gap-3 mt-3">
+                            <span>2 Abr, 2023</span>
+                            <span><i class="bi bi-clock me-1"></i> 10 min</span>
+                            <span><i class="bi bi-chat me-1"></i> 14</span>
+                          </div>
+                        </div>
+                        <div class="card-footer bg-white border-0 p-4 pt-0">
+                          <a href="post/seo-google-ranking-2023" class="text-primary small fw-medium d-flex align-items-center">
+                            Ler artigo completo <i class="bi bi-arrow-up-right ms-1"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Technology Tab -->
+                <div class="tab-pane fade" id="tech-posts" role="tabpanel" aria-labelledby="tech-tab">
+                  <div class="row row-cols-1 row-cols-md-2 g-4">
+                    <!-- Tech Post 1 -->
+                    <div class="col">
+                      <div class="card h-100 border-0 shadow-sm">
+                        <div class="position-relative">
+                          <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=2080&auto=format&fit=crop" class="card-img-top" alt="5G Smartphones">
+                          <span class="position-absolute top-3 start-3 badge bg-primary text-white">Tecnologia</span>
+                        </div>
+                        <div class="card-body p-4">
+                          <a href="post/best-5g-smartphones-2023" class="text-decoration-none text-dark">
+                            <h3 class="card-title h5 fw-semibold mb-2">Análise: Os Melhores Smartphones 5G de 2023</h3>
+                          </a>
+                          <p class="card-text text-muted small">Confira nossa análise completa dos smartphones mais avançados com tecnologia 5G disponíveis no mercado.</p>
+                          <div class="d-flex align-items-center text-muted small gap-3 mt-3">
+                            <span>10 Abr, 2023</span>
+                            <span><i class="bi bi-clock me-1"></i> 11 min</span>
+                            <span><i class="bi bi-chat me-1"></i> 15</span>
+                          </div>
+                        </div>
+                        <div class="card-footer bg-white border-0 p-4 pt-0">
+                          <a href="post/best-5g-smartphones-2023" class="text-primary small fw-medium d-flex align-items-center">
+                            Ler artigo completo <i class="bi bi-arrow-up-right ms-1"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Crypto Tab -->
+                <div class="tab-pane fade" id="crypto-posts" role="tabpanel" aria-labelledby="crypto-tab">
+                  <div class="row row-cols-1 row-cols-md-2 g-4">
+                    <!-- Crypto Post 1 -->
+                    <div class="col">
+                      <div class="card h-100 border-0 shadow-sm">
+                        <div class="position-relative">
+                          <img src="https://images.unsplash.com/photo-1639762681057-408e52192e55?q=80&w=2070&auto=format&fit=crop" class="card-img-top" alt="Blockchain Finance">
+                          <span class="position-absolute top-3 start-3 badge bg-success text-dark">Criptomoedas</span>
+                        </div>
+                        <div class="card-body p-4">
+                          <a href="post/blockchain-finance-2023" class="text-decoration-none text-dark">
+                            <h3 class="card-title h5 fw-semibold mb-2">Como Blockchain Está Mudando a Indústria Financeira em 2023</h3>
+                          </a>
+                          <p class="card-text text-muted small">Descubra as principais tendências de blockchain e como essa tecnologia está revolucionando o setor financeiro global.</p>
+                          <div class="d-flex align-items-center text-muted small gap-3 mt-3">
+                            <span>15 Abr, 2023</span>
+                            <span><i class="bi bi-clock me-1"></i> 7 min</span>
+                            <span><i class="bi bi-chat me-1"></i> 12</span>
+                          </div>
+                        </div>
+                        <div class="card-footer bg-white border-0 p-4 pt-0">
+                          <a href="post/blockchain-finance-2023" class="text-primary small fw-medium d-flex align-items-center">
+                            Ler artigo completo <i class="bi bi-arrow-up-right ms-1"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <!-- Crypto Post 2 -->
+                    <div class="col">
+                      <div class="card h-100 border-0 shadow-sm">
+                        <div class="position-relative">
+                          <img src="https://images.unsplash.com/photo-1645367547326-5ee0567dec60?q=80&w=1974&auto=format&fit=crop" class="card-img-top" alt="NFT Future">
+                          <span class="position-absolute top-3 start-3 badge bg-success text-dark">Criptomoedas</span>
+                        </div>
+                        <div class="card-body p-4">
+                          <a href="post/future-of-nfts" class="text-decoration-none text-dark">
+                            <h3 class="card-title h5 fw-semibold mb-2">O Futuro das NFTs: Arte Digital, Gaming e Além</h3>
+                          </a>
+                          <p class="card-text text-muted small">Uma análise profunda sobre o futuro dos tokens não fungíveis e seus impactos em diversos setores.</p>
+                          <div class="d-flex align-items-center text-muted small gap-3 mt-3">
+                            <span>5 Abr, 2023</span>
+                            <span><i class="bi bi-clock me-1"></i> 8 min</span>
+                            <span><i class="bi bi-chat me-1"></i> 9</span>
+                          </div>
+                        </div>
+                        <div class="card-footer bg-white border-0 p-4 pt-0">
+                          <a href="post/future-of-nfts" class="text-primary small fw-medium d-flex align-items-center">
+                            Ler artigo completo <i class="bi bi-arrow-up-right ms-1"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Affiliate Tab -->
+                <div class="tab-pane fade" id="affiliate-posts" role="tabpanel" aria-labelledby="affiliate-tab">
+                  <div class="row row-cols-1 row-cols-md-2 g-4">
+                    <!-- Affiliate Post 1 -->
+                    <div class="col">
+                      <div class="card h-100 border-0 shadow-sm">
+                        <div class="position-relative">
+                          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop" class="card-img-top" alt="Affiliate Marketing">
+                          <span class="position-absolute top-3 start-3 badge bg-purple text-white">Afiliados</span>
+                        </div>
+                        <div class="card-body p-4">
+                          <a href="post/affiliate-marketing-strategies" class="text-decoration-none text-dark">
+                            <h3 class="card-title h5 fw-semibold mb-2">10 Estratégias Avançadas para Marketing de Afiliados em 2023</h3>
+                          </a>
+                          <p class="card-text text-muted small">Aprenda técnicas modernas para aumentar sua conversão e maximizar seus ganhos com marketing de afiliados.</p>
+                          <div class="d-flex align-items-center text-muted small gap-3 mt-3">
+                            <span>12 Abr, 2023</span>
+                            <span><i class="bi bi-clock me-1"></i> 9 min</span>
+                            <span><i class="bi bi-chat me-1"></i> 8</span>
+                          </div>
+                        </div>
+                        <div class="card-footer bg-white border-0 p-4 pt-0">
+                          <a href="post/affiliate-marketing-strategies" class="text-primary small fw-medium d-flex align-items-center">
+                            Ler artigo completo <i class="bi bi-arrow-up-right ms-1"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <!-- Affiliate Post 2 -->
+                    <div class="col">
+                      <div class="card h-100 border-0 shadow-sm">
+                        <div class="position-relative">
+                          <img src="https://images.unsplash.com/photo-1562577309-4932fdd64cd1?q=80&w=2074&auto=format&fit=crop" class="card-img-top" alt="SEO Google Ranking">
+                          <span class="position-absolute top-3 start-3 badge bg-purple text-white">Afiliados</span>
+                        </div>
+                        <div class="card-body p-4">
+                          <a href="post/seo-google-ranking-2023" class="text-decoration-none text-dark">
+                            <h3 class="card-title h5 fw-semibold mb-2">SEO em 2023: Como Ranquear seu Site no Topo do Google</h3>
+                          </a>
+                          <p class="card-text text-muted small">Descubra as estratégias mais eficientes para otimizar seu site e conquistar as primeiras posições no Google.</p>
+                          <div class="d-flex align-items-center text-muted small gap-3 mt-3">
+                            <span>2 Abr, 2023</span>
+                            <span><i class="bi bi-clock me-1"></i> 10 min</span>
+                            <span><i class="bi bi-chat me-1"></i> 14</span>
+                          </div>
+                        </div>
+                        <div class="card-footer bg-white border-0 p-4 pt-0">
+                          <a href="post/seo-google-ranking-2023" class="text-primary small fw-medium d-flex align-items-center">
+                            Ler artigo completo <i class="bi bi-arrow-up-right ms-1"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="text-center mt-4">
+                <a href="#" class="btn btn-primary d-inline-flex align-items-center">
+                  Ver mais artigos <i class="bi bi-arrow-right ms-2"></i>
+                </a>
+              </div>
+            </div>
+            
+            <!-- Newsletter Banner (Mobile Only) -->
+            <div class="d-block d-lg-none mb-5 p-4 rounded-4 bg-gradient text-white">
+              <h3 class="fs-4 fw-bold mb-2">Inscreva-se em nossa Newsletter</h3>
+              <p class="mb-3">Receba os melhores conteúdos sobre tecnologia e marketing diretamente no seu email.</p>
+              <form class="row g-2">
+                <div class="col-sm-8">
+                  <input type="email" class="form-control" placeholder="Seu melhor e-mail">
+                </div>
+                <div class="col-sm-4">
+                  <button type="submit" class="btn btn-light w-100">Inscrever-se</button>
+                </div>
+              </form>
+            </div>
+          </div>
+          
+          <!-- Sidebar -->
+          <div class="col-lg-4 d-none d-lg-block">
+            <!-- Search Card -->
+            <div class="card mb-4 border-0 shadow-sm">
+              <div class="card-header bg-white py-3 border-bottom">
+                <h5 class="card-title mb-0 fw-semibold"><i class="bi bi-search me-2"></i> Buscar</h5>
+              </div>
+              <div class="card-body p-4">
+                <div class="position-relative">
+                  <input type="search" class="form-control" placeholder="O que você está procurando?">
+                  <button class="btn btn-sm position-absolute end-0 top-0 mt-1 me-2">
+                    <i class="bi bi-search"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Newsletter Card -->
+            <div class="card mb-4 border-0 shadow-sm bg-gradient text-white">
+              <div class="card-header bg-transparent py-3 border-bottom-0">
+                <h5 class="card-title mb-0 fw-semibold"><i class="bi bi-envelope me-2"></i> Newsletter</h5>
+              </div>
+              <div class="card-body p-4">
+                <p class="small mb-3">Receba as últimas notícias e atualizações diretamente em seu e-mail</p>
+                <form>
+                  <input type="email" class="form-control mb-2 bg-white/20 border-0" placeholder="Seu e-mail" required>
+                  <button type="submit" class="btn btn-light w-100">Inscrever-se</button>
+                </form>
+              </div>
+            </div>
+            
+            <!-- Categories Card -->
+            <div class="card mb-4 border-0 shadow-sm">
+              <div class="card-header bg-white py-3 border-bottom">
+                <h5 class="card-title mb-0 fw-semibold"><i class="bi bi-tag me-2"></i> Categorias</h5>
+              </div>
+              <div class="card-body p-4">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <a href="category/technology" class="text-decoration-none text-dark">Tecnologia</a>
+                  <span class="badge bg-light text-dark">24</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <a href="category/crypto" class="text-decoration-none text-dark">Criptomoedas</a>
+                  <span class="badge bg-light text-dark">18</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <a href="category/affiliate" class="text-decoration-none text-dark">Afiliados</a>
+                  <span class="badge bg-light text-dark">12</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <a href="category/tutorials" class="text-decoration-none text-dark">Tutoriais</a>
+                  <span class="badge bg-light text-dark">9</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <a href="category/reviews" class="text-decoration-none text-dark">Análises</a>
+                  <span class="badge bg-light text-dark">7</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Recent Posts Card -->
+            <div class="card mb-4 border-0 shadow-sm">
+              <div class="card-header bg-white py-3 border-bottom">
+                <h5 class="card-title mb-0 fw-semibold">Posts Recentes</h5>
+              </div>
+              <div class="card-body p-4">
+                <div class="mb-3 pb-3 border-bottom">
+                  <a href="post/otimizar-site-seo-2023" class="text-decoration-none text-dark fw-medium small">Como Otimizar seu Site para SEO em 2023</a>
+                  <p class="text-muted small mt-1">12 Abr, 2023</p>
+                </div>
+                <div class="mb-3 pb-3 border-bottom">
+                  <a href="post/tendencias-criptomoedas-2023" class="text-decoration-none text-dark fw-medium small">5 Tendências de Criptomoedas que Você Precisa Conhecer</a>
+                  <p class="text-muted small mt-1">8 Abr, 2023</p>
+                </div>
+                <div>
+                  <a href="post/tutorial-loja-shopify" class="text-decoration-none text-dark fw-medium small">Tutorial: Como Criar uma Loja Virtual com Shopify</a>
+                  <p class="text-muted small mt-1">1 Abr, 2023</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Tags Cloud -->
+            <div class="card mb-4 border-0 shadow-sm">
+              <div class="card-header bg-white py-3 border-bottom">
+                <h5 class="card-title mb-0 fw-semibold"><i class="bi bi-hash me-2"></i> Tags</h5>
+              </div>
+              <div class="card-body p-4">
+                <div class="d-flex flex-wrap gap-2">
+                  <a href="tag/bitcoin" class="badge bg-light text-dark text-decoration-none">Bitcoin</a>
+                  <a href="tag/nft" class="badge bg-light text-dark text-decoration-none">NFT</a>
+                  <a href="tag/marketing" class="badge bg-light text-dark text-decoration-none">Marketing</a>
+                  <a href="tag/seo" class="badge bg-light text-dark text-decoration-none">SEO</a>
+                  <a href="tag/ai" class="badge bg-light text-dark text-decoration-none">Inteligência Artificial</a>
+                  <a href="tag/5g" class="badge bg-light text-dark text-decoration-none">5G</a>
+                  <a href="tag/inovacao" class="badge bg-light text-dark text-decoration-none">Inovação</a>
+                  <a href="tag/empreendedorismo" class="badge bg-light text-dark text-decoration-none">Empreendedorismo</a>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Affiliate Links Card -->
+            <div class="card mb-4 border-0 shadow-sm bg-dark text-white">
+              <div class="card-header bg-transparent py-3 border-bottom-0">
+                <h5 class="card-title mb-0 fw-semibold">Produtos Recomendados</h5>
+              </div>
+              <div class="card-body p-4">
+                <div class="bg-dark-subtle rounded-3 p-3 mb-3">
+                  <h4 class="h6 fw-semibold mb-2">Curso Completo de Marketing Digital</h4>
+                  <p class="small text-light mb-3">Aprenda estratégias avançadas de marketing digital e aumente seus resultados.</p>
+                  <a href="#" class="btn btn-success w-100 small">Conhecer Curso</a>
+                </div>
+                <div class="bg-dark-subtle rounded-3 p-3">
+                  <h4 class="h6 fw-semibold mb-2">eBook: Guia para Investimentos em Cripto</h4>
+                  <p class="small text-light mb-3">Um guia essencial para quem quer começar a investir em criptomoedas com segurança.</p>
+                  <a href="#" class="btn btn-primary w-100 small">Fazer Download</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-top py-5">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-6">
+            <a href="index.html" class="d-inline-block mb-3">
+              <span class="fs-4 fw-bold text-gradient">TechPulse</span>
+            </a>
+            <p class="text-muted mb-4 pe-lg-5">Blog de tecnologia, criptomoedas e marketing de afiliados com as últimas novidades e análises aprofundadas para manter você atualizado.</p>
+            <div class="d-flex gap-3">
+              <a href="#" class="text-muted" target="_blank"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="text-muted" target="_blank"><i class="bi bi-twitter-x"></i></a>
+              <a href="#" class="text-muted" target="_blank"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="text-muted" target="_blank"><i class="bi bi-linkedin"></i></a>
+              <a href="#" class="text-muted" target="_blank"><i class="bi bi-github"></i></a>
+            </div>
+          </div>
+          
+          <div class="col-6 col-lg-3">
+            <h5 class="mb-3 fw-semibold">Categorias</h5>
+            <ul class="list-unstyled">
+              <li class="mb-2"><a href="category/technology" class="text-decoration-none text-muted">Tecnologia</a></li>
+              <li class="mb-2"><a href="category/crypto" class="text-decoration-none text-muted">Criptomoedas</a></li>
+              <li class="mb-2"><a href="category/affiliate" class="text-decoration-none text-muted">Afiliados</a></li>
+              <li class="mb-2"><a href="category/tutorials" class="text-decoration-none text-muted">Tutoriais</a></li>
+              <li><a href="category/reviews" class="text-decoration-none text-muted">Análises</a></li>
+            </ul>
+          </div>
+          
+          <div class="col-6 col-lg-3">
+            <h5 class="mb-3 fw-semibold">Links</h5>
+            <ul class="list-unstyled">
+              <li class="mb-2"><a href="about" class="text-decoration-none text-muted">Sobre</a></li>
+              <li class="mb-2"><a href="contact" class="text-decoration-none text-muted">Contato</a></li>
+              <li class="mb-2"><a href="privacy" class="text-decoration-none text-muted">Política de Privacidade</a></li>
+              <li><a href="terms" class="text-decoration-none text-muted">Termos de Uso</a></li>
+            </ul>
+          </div>
+        </div>
+        
+        <hr class="my-4">
+        
+        <div class="row">
+          <div class="col-md-6 small text-muted mb-3 mb-md-0">
+            &copy; 2023 TechPulse. Todos os direitos reservados.
+          </div>
+          <div class="col-md-6 text-md-end small text-muted">
+            Feito com 💙 by <a href="index.html" class="text-decoration-none text-primary">TechPulse</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
   </body>
 </html>
