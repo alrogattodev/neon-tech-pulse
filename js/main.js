@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', function() {
   // Theme Toggle Functionality
   const themeToggle = document.getElementById('themeToggle');
@@ -7,23 +6,34 @@ document.addEventListener('DOMContentLoaded', function() {
   // Check for saved theme preference or use user's system preference
   const savedTheme = localStorage.getItem('theme');
   if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.classList.add('dark');
     document.body.classList.add('dark-mode');
-    themeIcon.classList.replace('bi-moon-fill', 'bi-sun-fill');
+    if (themeIcon) {
+      themeIcon.classList.replace('bi-moon-fill', 'bi-sun-fill');
+    }
   }
   
   // Theme toggle click handler
-  themeToggle.addEventListener('click', function() {
-    document.body.classList.toggle('dark-mode');
-    
-    // Update the icon based on current theme
-    if (document.body.classList.contains('dark-mode')) {
-      themeIcon.classList.replace('bi-moon-fill', 'bi-sun-fill');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      themeIcon.classList.replace('bi-sun-fill', 'bi-moon-fill');
-      localStorage.setItem('theme', 'light');
-    }
-  });
+  if (themeToggle) {
+    themeToggle.addEventListener('click', function() {
+      // Toggle both the Tailwind dark class and the custom dark-mode class
+      document.documentElement.classList.toggle('dark');
+      document.body.classList.toggle('dark-mode');
+      
+      // Update the icon based on current theme
+      if (document.body.classList.contains('dark-mode')) {
+        if (themeIcon) {
+          themeIcon.classList.replace('bi-moon-fill', 'bi-sun-fill');
+        }
+        localStorage.setItem('theme', 'dark');
+      } else {
+        if (themeIcon) {
+          themeIcon.classList.replace('bi-sun-fill', 'bi-moon-fill');
+        }
+        localStorage.setItem('theme', 'light');
+      }
+    });
+  }
   
   // Initialize Bootstrap tooltips
   const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));

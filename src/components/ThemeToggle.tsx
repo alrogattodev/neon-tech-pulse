@@ -12,9 +12,11 @@ const ThemeToggle = () => {
     if (storedTheme) {
       setTheme(storedTheme);
       document.documentElement.classList.toggle("dark", storedTheme === "dark");
+      document.body.classList.toggle("dark-mode", storedTheme === "dark");
     } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
       setTheme("dark");
       document.documentElement.classList.add("dark");
+      document.body.classList.add("dark-mode");
     }
   }, []);
 
@@ -22,14 +24,10 @@ const ThemeToggle = () => {
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
     localStorage.setItem("theme", newTheme);
-    document.documentElement.classList.toggle("dark", newTheme === "dark");
     
-    // Also toggle the body class for non-Tailwind styling
-    if (newTheme === "dark") {
-      document.body.classList.add("dark-mode");
-    } else {
-      document.body.classList.remove("dark-mode");
-    }
+    // Toggle both the Tailwind dark class and the custom dark-mode class
+    document.documentElement.classList.toggle("dark", newTheme === "dark");
+    document.body.classList.toggle("dark-mode", newTheme === "dark");
   };
 
   return (
