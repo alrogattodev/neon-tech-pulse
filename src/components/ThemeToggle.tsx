@@ -7,6 +7,7 @@ const ThemeToggle = () => {
   const [theme, setTheme] = useState<"light" | "dark">("light");
 
   useEffect(() => {
+    // Check for saved theme preference or use system preference
     const storedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
     if (storedTheme) {
       setTheme(storedTheme);
@@ -22,6 +23,13 @@ const ThemeToggle = () => {
     setTheme(newTheme);
     localStorage.setItem("theme", newTheme);
     document.documentElement.classList.toggle("dark", newTheme === "dark");
+    
+    // Also toggle the body class for non-Tailwind styling
+    if (newTheme === "dark") {
+      document.body.classList.add("dark-mode");
+    } else {
+      document.body.classList.remove("dark-mode");
+    }
   };
 
   return (

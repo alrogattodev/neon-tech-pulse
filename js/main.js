@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', function() {
   // Theme Toggle Functionality
   const themeToggle = document.getElementById('themeToggle');
-  const themeIcon = themeToggle.querySelector('i');
+  const themeIcon = document.querySelector('#themeToggle i');
   
   // Check for saved theme preference or use user's system preference
   const savedTheme = localStorage.getItem('theme');
@@ -27,9 +27,11 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Initialize Bootstrap tooltips
   const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-  tooltipTriggerList.map(function (tooltipTriggerEl) {
-    return new bootstrap.Tooltip(tooltipTriggerEl);
-  });
+  if (typeof bootstrap !== 'undefined') {
+    tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+  }
   
   // Newsletter form submission
   const newsletterForms = document.querySelectorAll('form');
@@ -47,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   
   // Add animation classes when elements come into view
-  const animateElements = document.querySelectorAll('.card');
+  const animateElements = document.querySelectorAll('.card, .section-title, .feature-box');
   
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {

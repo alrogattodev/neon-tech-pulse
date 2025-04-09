@@ -12,12 +12,21 @@
   --neon-green: #6bff91;
   --matte-black: #151515;
   --font-sans-serif: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  
+  /* Adicionando variáveis para melhorar a harmonia */
+  --card-spacing: 1.5rem;
+  --section-spacing: 4rem;
+  --border-radius: 0.5rem;
+  --transition-speed: 0.3s;
 }
 
 /* Base Styles */
 body {
   font-family: var(--font-sans-serif);
   color: #333;
+  line-height: 1.6;
+  transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+  padding-top: 76px; /* Ajustando para navbar fixa */
 }
 
 /* Dark Mode */
@@ -30,7 +39,9 @@ body.dark-mode .bg-white,
 body.dark-mode .navbar,
 body.dark-mode .card,
 body.dark-mode .card-header,
-body.dark-mode .card-footer {
+body.dark-mode .card-footer,
+body.dark-mode .modal-content,
+body.dark-mode .list-group-item {
   background-color: #222 !important;
   border-color: #333 !important;
 }
@@ -43,7 +54,8 @@ body.dark-mode h2,
 body.dark-mode h3, 
 body.dark-mode h4, 
 body.dark-mode h5, 
-body.dark-mode h6 {
+body.dark-mode h6,
+body.dark-mode .dropdown-item {
   color: #f5f5f5 !important;
 }
 
@@ -65,6 +77,49 @@ body.dark-mode .bg-dark-subtle {
   background-color: #333 !important;
 }
 
+body.dark-mode .form-control,
+body.dark-mode .form-select {
+  background-color: #333;
+  border-color: #444;
+  color: #f5f5f5;
+}
+
+body.dark-mode .dropdown-menu {
+  background-color: #222;
+  border-color: #333;
+}
+
+body.dark-mode .dropdown-item:hover {
+  background-color: #333;
+}
+
+/* Melhorando a harmonia do layout */
+section {
+  margin-bottom: var(--section-spacing);
+  padding: 2rem 0;
+}
+
+.section-title {
+  margin-bottom: 2rem;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 80px;
+  height: 3px;
+  background: var(--tech-blue);
+}
+
+.container {
+  max-width: 1200px;
+  padding: 0 1rem;
+}
+
 /* Utilities */
 .text-gradient {
   background: linear-gradient(90deg, var(--tech-blue), var(--neon-green));
@@ -81,14 +136,18 @@ body.dark-mode .bg-dark-subtle {
   background-color: var(--bs-purple) !important;
 }
 
-/* Card and Image styles */
+/* Card e Image styles - melhorando espaçamento e harmonia */
 .card {
-  transition: all 0.3s ease;
+  transition: all var(--transition-speed) ease;
   overflow: hidden;
+  border-radius: var(--border-radius);
+  margin-bottom: var(--card-spacing);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 
 .card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
 
 .card-img-top {
@@ -101,9 +160,32 @@ body.dark-mode .bg-dark-subtle {
   transform: scale(1.05);
 }
 
-/* Carousel customization */
+.card-body {
+  padding: 1.5rem;
+}
+
+.card-footer {
+  padding: 1rem 1.5rem;
+  border-top-color: rgba(0,0,0,0.1);
+}
+
+/* Carousel customization - melhorando a harmonia */
+.carousel {
+  margin-bottom: var(--card-spacing);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
 .carousel-item {
-  transition: transform 0.8s ease, opacity .5s ease-out;
+  transition: transform 0.8s ease, opacity 0.5s ease-out;
+}
+
+.carousel-caption {
+  background: rgba(0,0,0,0.6);
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  bottom: 1.5rem;
 }
 
 .carousel-indicators [data-bs-target] {
@@ -119,12 +201,18 @@ body.dark-mode .bg-dark-subtle {
   background-color: white;
 }
 
-/* Nav tabs style */
+/* Nav tabs style - mais harmonioso */
+.nav-tabs {
+  border-bottom: 2px solid #eee;
+  margin-bottom: 1.5rem;
+}
+
 .nav-tabs .nav-link {
   color: #777;
   border: none;
   padding: 0.5rem 1rem;
   position: relative;
+  transition: all var(--transition-speed) ease;
 }
 
 .nav-tabs .nav-link.active {
@@ -136,7 +224,7 @@ body.dark-mode .bg-dark-subtle {
 .nav-tabs .nav-link.active::after {
   content: '';
   position: absolute;
-  bottom: 0;
+  bottom: -2px;
   left: 0;
   width: 100%;
   height: 2px;
@@ -153,12 +241,20 @@ body.dark-mode .bg-dark-subtle {
   animation: fadeIn 0.5s ease-out forwards;
 }
 
-/* Other utility classes */
+/* Imagens mais harmoniosas */
 .object-fit-cover {
   object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 
-/* Button styles */
+/* Button styles - mais consistentes */
+.btn {
+  padding: 0.5rem 1.25rem;
+  border-radius: var(--border-radius);
+  transition: all var(--transition-speed) ease;
+}
+
 .btn-primary {
   background-color: var(--tech-blue);
   border-color: var(--tech-blue);
@@ -181,7 +277,67 @@ body.dark-mode .bg-dark-subtle {
   color: var(--matte-black);
 }
 
-/* Top spacing for sections */
-section {
-  margin-top: 2rem;
+/* Melhorando a navbar */
+.navbar {
+  padding: 0.75rem 1rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.navbar-brand {
+  font-weight: 600;
+}
+
+/* Melhorando espaçamento de listas */
+.list-group-item {
+  padding: 0.75rem 1.25rem;
+  transition: background-color var(--transition-speed) ease;
+}
+
+/* Melhorando aspecto dos formulários */
+.form-control, .form-select {
+  border-radius: var(--border-radius);
+  padding: 0.5rem 1rem;
+  transition: all var(--transition-speed) ease;
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: var(--tech-blue);
+  box-shadow: 0 0 0 0.25rem rgba(0, 102, 255, 0.25);
+}
+
+/* Melhorando o rodapé */
+footer {
+  padding: 3rem 0;
+  margin-top: var(--section-spacing);
+  border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+/* Ajustes para barra lateral */
+.sidebar .card {
+  margin-bottom: var(--card-spacing);
+}
+
+/* Ajustes para conteúdo principal */
+.main-content {
+  min-height: 70vh;
+}
+
+/* Responsividade melhorada */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.5rem 1rem;
+  }
+  
+  .section-title {
+    margin-bottom: 1.5rem;
+  }
+  
+  .card-img-top {
+    height: 180px;
+  }
+  
+  section {
+    margin-bottom: 2rem;
+    padding: 1.5rem 0;
+  }
 }
